@@ -11,6 +11,9 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
 
+    <!-- My AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
     <!-- My Css -->
     <link rel="stylesheet" href="style.css" />
 
@@ -47,8 +50,8 @@
     <!-- Jumbotron -->
     <section class="jumbotron text-center">
       <img src="img/Male.svg" alt="Tresno Hidayat" width="200" class="rounded-circle img-thumbnail" />
-      <h1 class="display-4">Tresno Hidayat</h1>
-      <p class="lead">Students | Gamers</p>
+      <h1 class="display-4"></h1>
+      <p class="lead"></p>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path
           fill="#ffff"
@@ -64,16 +67,17 @@
       <div class="container">
         <div class="row text-center mb-3">
           <div class="col">
-            <h2>About Me</h2>
+            <h2 class="word"></h2>
           </div>
         </div>
         <div class="row justify-content-center fs-5 text-center">
-          <div class="col-md-4">
+          <div class="col-md-4" data-aos="zoom-in-right">
             <p>Hello, my name is Tresno Hidayat, i was born on December 10, 2003 in Jakarta. And now i live in West Java, I am a student from the State Vocational High School 1 Losarang Indramayu.</p>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4" data-aos="zoom-in-left" data-aos-delay="300">
             <p>
-              This is my first portfolio website, here I give some information about myself, so please help to provide suggestions and criticisms at <a href="#contact" class="text-dark">Contact.</a> So that I can be motivated and correct any mistake I made.
+              This is my first portfolio website, here I give some information about myself, so please help to provide suggestions and criticisms at <a href="#contact" class="text-dark">Contact.</a> So that I can be motivated and correct
+              any mistake I made.
             </p>
           </div>
         </div>
@@ -93,7 +97,7 @@
       <div class="container">
         <div class="row text-center mb-3">
           <div class="col">
-            <h2>My Hobbies</h2>
+            <h2 class="words"></h2>
           </div>
         </div>
         <div class="row fs-5 text-center justify-content-center">
@@ -163,21 +167,21 @@
               <strong>Thank You!</strong> We have received your message.
               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-            <form name='trh-contact-form'>
+            <form name="trh-contact-form">
               <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" id="name" aria-describedby="name" name="nama"/>
+                <input type="text" class="form-control" id="name" aria-describedby="name" name="nama" />
               </div>
               <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" aria-describedby="email" name="email"/>
+                <input type="email" class="form-control" id="email" aria-describedby="email" name="email" />
               </div>
               <div class="mb-3">
                 <label for="message" class="form-label">Message</label>
                 <textarea class="form-control" id="message" rows="3" name="pesan"></textarea>
               </div>
               <button type="submit" class="btn btn-warning fst-italic btn-kirim">Submit</button>
-              
+
               <button class="btn btn-warning fst-italic btn-loading d-none" type="button" disabled>
                 <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
                 Loading...
@@ -204,21 +208,49 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbxruGTCVbj5lhawCauEECuJm6J_CQKnG3tso2E_D757K3yow0tfVL9__rvGrXGcWGC4bg/exec'
+      const card = document.querySelectorAll('.card');
+
+      card.forEach((img, i) => {
+        img.dataset.aos = 'zoom-in-down';
+        img.dataset.aosDelay = i * 100;
+        img.dataset.aosDuration = 1000;
+      });
+
+      AOS.init({
+        once: true,
+        duration: 2000,
+      });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/TextPlugin.min.js"></script>
+    <script>
+      gsap.registerPlugin(TextPlugin);
+      gsap.to('.display-4', { duration: 1, delay: 1, text: 'Tresno Hidayat' });
+      gsap.to('.lead', { duration: 1, delay: 2, text: 'Students | Gamers' });
+      gsap.to('.word', { duration: 1, delay: 3, text: 'About Me' });
+      gsap.to('.words', { duration: 2, delay: 5, text: 'My Hobbies' });
+      gsap.from('.jumbotron img', { duration: 1, y: -100, opacity: 0, delay: 0.2, ease: 'back' });
+      gsap.from('.navbar', { duration: 1, y: '-100%', opacity: 0 });
+    </script>
+
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbxruGTCVbj5lhawCauEECuJm6J_CQKnG3tso2E_D757K3yow0tfVL9__rvGrXGcWGC4bg/exec';
       const form = document.forms['trh-contact-form'];
       const btnKirim = document.querySelector('.btn-kirim');
       const btnLoading = document.querySelector('.btn-loading');
       const myAlert = document.querySelector('.my-alert');
-    
-      form.addEventListener('submit', e => {
+
+      form.addEventListener('submit', (e) => {
         e.preventDefault();
         // ketika tombol submit diklik
         // tampilkan tombol loading, hilangkan tombol kirim
         btnLoading.classList.toggle('d-none');
         btnKirim.classList.toggle('d-none');
-        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-          .then(response => {
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+          .then((response) => {
             // tampilkan tombol kirim, hilangkan tombol loading
             btnLoading.classList.toggle('d-none');
             btnKirim.classList.toggle('d-none');
@@ -228,8 +260,8 @@
             form.reset();
             console.log('Success!', response);
           })
-          .catch(error => console.error('Error!', error.message));
+          .catch((error) => console.error('Error!', error.message));
       });
-    </script
+    </script>
   </body>
 </html>

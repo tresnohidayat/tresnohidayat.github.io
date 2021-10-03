@@ -9,16 +9,7 @@
   background-color: #ffd491;
 }
 
-#hobby .card {
-  transition: transform 0.2s ease-in;
-}
-
-#hobby .card:hover {
-  transform: translateY(-15px);
-}
-
 /* Section */
 section {
   padding-top: 5rem;
 }
-
