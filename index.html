@@ -21,7 +21,7 @@
   </head>
   <body id="home">
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-warning shadow-sm fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-warning shadow-sm fixed-top" data-aos="fade-down" data-aos-duration="500">
       <div class="container">
         <a class="navbar-brand" href="#">Tresno</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -232,8 +232,7 @@
       gsap.to('.lead', { duration: 1, delay: 2, text: 'Students | Gamers' });
       gsap.to('.word', { duration: 1, delay: 3, text: 'About Me' });
       gsap.to('.words', { duration: 2, delay: 5, text: 'My Hobbies' });
-      gsap.from('.jumbotron img', { duration: 1, y: -100, opacity: 0, delay: 0.2, ease: 'back' });
-      gsap.from('.navbar', { duration: 1, y: -100, opacity: 0 });
+      gsap.from('.jumbotron img', { duration: 1, y: -100, opacity: 0, delay: 0.8, ease: 'back' });
     </script>
 
     <script>
